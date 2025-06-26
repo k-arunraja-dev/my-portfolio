@@ -1,0 +1,97 @@
+1. Go to the official site Download the LTS version:
+     https://nodejs.org/
+
+2. Then Run the below command in Terminal "npm create vite@latest my-portfolio -- --template react"
+ if it showing error means run the below command in terminal after that run the previous command "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass"
+
+3. Select a framework: React and Javascript
+
+4. After that run the below command:  
+
+cd my-portfolio
+npm install
+npm run dev
+
+
+5. npm install -D tailwindcss postcss autoprefixer
+
+
+
+
+
+
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { Menu, X } from "lucide-react"
+
+export default function Header () {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navItems = [
+    { name: "About", href: "/" },
+    { name: "Skills", href: "/skills" },
+    { name: "Projects", href: "/projects" },
+    { name: "Contact", href: "/contact" },
+  ]
+
+  return (
+    <header className="bg-slate-200 shadow-md sticky top-0 z-50">
+      <div className="flex justify-between items-center max-w-6xl mx-auto px-4 py-4">
+        {/* Logo/Name */}
+        <Link to="/" className="group">
+          <h1 className="text-2xl font-bold tracking-tight">
+            <span className="text-slate-500 group-hover:text-blue-300 transition-colors">Arun</span>
+            <span className="text-slate-700 group-hover:text-gray-100 transition-colors">Raja K</span>
+          </h1>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:block">
+          <ul className="flex items-center space-x-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.href}
+                  className="text-slate-700 hover:text-blue-400 font-medium transition-colors duration-200 relative group"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-200 group-hover:w-full"></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-gray-800 border-t border-gray-700">
+          <nav className="px-4 py-4">
+            <ul className="space-y-4">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.href}
+                    className="block text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200 py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}
+
