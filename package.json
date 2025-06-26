@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
@@ -26,6 +27,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.6.0",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.11.1",
@@ -38,12 +40,5 @@
     "tailwindcss": "^3.4.13",
     "vite": "^5.4.8"
   },
-  "homepage": "https://k-arunraja-dev.github.io/my-portfolio",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
-  }
-
+  "homepage": "https://k-arunraja-dev.github.io/my-portfolio"
 }
