@@ -27,7 +27,7 @@ export default function Home () {
             <div className='flex flex-col gap-6 py-28 px-3 max-w-6xl mx-auto'>
                 <p className='text-slate-500'>Hello,</p>
                 <h1 className='text-slate-500'>I'm 
-                    <span className='text-slate-700'>K Arun Raja</span>
+                    <span className='text-slate-700'> Arunraja K</span>
                     <br />
                 </h1>
                 <div className="text-3xl font-bold text-gray-800">
