@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react"
 
 export default function Home () {
-    const fullText = "Software Developer";
+    const fullText = "Software";
     const [visibleText, setVisibleText] = useState("");
 
     useEffect(() => {
         let index = 0;
 
         const interval = setInterval(() => {
-        // ✅ Only update if still within bounds
         if (index < fullText.length) {
             console.log("Index:", index, "Char:", fullText[index]);
 
